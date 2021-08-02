@@ -14,14 +14,6 @@ Post.belongsTo(User, {
 Comment.belongsTo(User, {
     foreignKey: 'UserId'
 });
-// check these?
-Comment.belongsTo(Post, {
-  foreignKey: 'postId'
-})
-// check these?
-User.hasMany( comment, {
-  foreignKey: 'commentId'
-})
 
 module.exports = { User, Post, Comment };
 
