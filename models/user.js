@@ -30,10 +30,6 @@ User.init(
             len: [6],
           },
       },
-      title: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
     }, {
       hooks: {
           async beforeCreate(newUserData) {
