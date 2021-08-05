@@ -13,11 +13,11 @@ router.get("/", async (req, res) => {
         ],
       });
   
-      const post = dbBlogData.map((gallery) =>
+      const post = dbBlogData.map((post) =>
         post.get({ plain: true })
       );
   
-      res.render('homepage', {
+      res.render('./layouts/main', {
         post,
         loggedIn: req.session.loggedIn,
       });

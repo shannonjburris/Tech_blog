@@ -1,10 +1,12 @@
 const userRouter = require('express').Router();
 const { User } = require('../../models');
 
+// I belive this is done and correct
+
 // CREATE new user
 userRouter.post('/', async (req, res) => {
   try {
-    const dbUserData = await User.create({
+    const userData = await User.create({
       username: req.body.username,
       email: req.body.email,
       password: req.body.password,
@@ -13,14 +15,14 @@ userRouter.post('/', async (req, res) => {
     req.session.save(() => {
       req.session.loggedIn = true;
 
-      res.status(200).json(dbUserData);
+      res.status(200).json(userData);
     });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
-
+// Log in check db for password and email
   userRouter.post('/login', async (req, res) => {
     try {
       const userData = await User.findOne({ where: { email: req.body.email } });

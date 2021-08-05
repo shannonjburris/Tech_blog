@@ -1,21 +1,47 @@
-
+<!DOCTYPE>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {{#if loggedIn}}
-    <a href="/dashbaord"></a>
-    {{else}}
-    <a href="/signup"></a>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
 
+    <title>Tech Blog</title>
+</head>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Tech Blog</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" {{#if loggedIn}} href="./dashboard.handlebars">dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="logout" href="#">Sign out</a>
+                </li>
+                {{else}}
+                <li class="nav-item">
+                    <a class="nav-link" href="../signup.handlebars">Sign up</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="../login.handlebars">Sign In</a>
+            </ul>
+        </div>
+    </div>
+</nav>
 {{/if}}
+
 {{{body}}}
-{{#if loggedIn}}
-<script src="/Tech_blog/public/logout.js"
-{{/if}}
+
+<script src="/Tech_blog/public/logout.js"></script>
+
 </body>
+
 </html>
